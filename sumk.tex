@@ -1,0 +1,162 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+\section{Find a formula for $\sum_{k=1}^{n} k$}
+\begin{flushleft}
+First let's look at the binomial expansion of $(k-1)^2$:
+\end{flushleft}
+\begin{align}
+(k-1)^2 = k^2 - 2k + 1 
+\end{align}
+\begin{flushleft}
+Let $a_{k} = k^2$. Let's create the telescoping sequence $t_{k} = a_{k} - a_{k-1}$.
+\end{flushleft}
+\begin{align*}
+t_{k} &= a_{k}-a_{k-1} \\
+&= k^2 - (k-1)^2 \\
+&= k^2 - (k^2 - 2k + 1) \\
+&= 2k -1
+\end{align*}
+\begin{flushleft}
+Thus we have the equation:
+\end{flushleft}
+\begin{align}
+t_{k} = 2k - 1 
+\end{align}
+\begin{flushleft}
+We can sum both sides of equation (2) to get a telescoping series.
+\end{flushleft}
+\begin{align}
+\sum_{k=1}^{n} t_{k} = \sum_{k=1}^{n} (2k-1)
+\end{align}
+\begin{flushleft}
+All terms in the series $\sum_{k=1}^{n} t_{k}$ cancel out, except for the first and the last:
+\end{flushleft}
+\begin{align*}
+\sum_{k=1}^{n} t_{k} &= \sum_{k=1}^{n} (a_{k} - a_{k-1}) \\
+&= a_{n} - a_{0} \\
+&= n^2 - 0^2 \\
+&= n^2
+\end{align*}
+\begin{flushleft}
+Now we have the equation:
+\end{flushleft}
+\begin{align}
+\sum_{k=1}^{n} t_{k} = n^2
+\end{align}
+\begin{flushleft}
+We can perform substitution in equation (3)
+\end{flushleft}
+\begin{align*}
+n^2 &= \sum_{k=1}^{n} (2k-1) \\
+       &= \sum_{k=1}^{n} 2k - \sum_{k=1}^{n} 1 \\
+       &= 2 * \sum_{k=1}^{n} k - \sum_{k=1}^{n} 1
+\end{align*}
+\begin{flushleft}
+Thus we have the equation:
+\end{flushleft}
+\begin{align}
+n^2 = 2 * \sum_{k=1}^{n} k - \sum_{k=1}^{n} 1
+\end{align}
+\begin{flushleft}
+We can solve equation (5) for $\sum_{k=1}^{n} k$.
+\end{flushleft}
+\begin{align*}
+2 *  \sum_{k=1}^{n} k &= n^2 + \sum_{k=1}^{n} 1 \\
+&= n^2 + n \\
+&= n(n+1)
+\end{align*}
+\begin{flushleft}
+And we get the formula:
+\end{flushleft}
+\begin{align}
+\sum_{k=1}^{n} k = \frac{n(n+1)}{2}
+\end{align}
+\section{Find a formula for $\sum_{k=1}^{n} k^2$}
+\begin{flushleft}
+We can apply the same technique as before.
+\end{flushleft}
+\begin{flushleft}
+Let's look at the binomial expansion of $(k-1)^3$.
+\end{flushleft}
+\begin{align*}
+(k-1)^3 &= (k-1)(k^2 - 2k + 1) \\
+&= k(k^2 - 2k + 1) - (k^2 - 2k + 1) \\
+&= k^3 - 2k^2 + k - k^2 + 2k - 1 \\
+&= k^3 - 3k^2 + 3k - 1
+\end{align*}
+\begin{flushleft}
+The coefficients are what we expect from Pascal's triangle.
+\end{flushleft}
+\begin{flushleft}
+This gives us the equation: 
+\end{flushleft}
+\begin{align}
+(k-1)^3 = k^3 - 3k^2 + 3k - 1
+\end{align}
+\begin{flushleft}
+Now let's look at the general term of a telescoping series.
+\end{flushleft}
+\begin{flushleft}
+Let $t_{k} = k^3 - (k-1)^3$
+\end{flushleft}
+\begin{align*}
+t_{k} &= k^3 - (k-1)^3 \\
+&= k^3 - (k^3 - 3k^2 + 3k - 1) \\
+&= 3k^2 - 3k + 1
+\end{align*}
+\begin{flushleft}
+Thus we have the equation:
+\end{flushleft}
+\begin{align}
+t_{k} = 3k^2 - 3k + 1
+\end{align}
+\begin{flushleft}
+The left hand side of the equation is the term of a sequence. The right hand side is a polynomial. We can take the summation of both sides of the equation.
+\end{flushleft}
+\begin{align}
+\sum_{k=1}^{n} t_{k} = \sum_{k=1}^{n} (3k^2 - 3k + 1)
+\end{align}
+\begin{flushleft}
+The left hand side of the equation telescopes.
+\end{flushleft}
+\begin{align*}
+n^3 &= \sum_{k=1}^{n} (3k^2 - 3k + 1) \\
+&= \sum_{k=1}^{n} (3k^2) - \sum_{k=1}^{n} 3k + \sum_{k=1}^{n} 1 \\
+&= 3 * \sum_{k=1}^{n} k^2 - 3 * \sum_{k=1}^{n} k + n
+\end{align*}
+\begin{flushleft}
+We can simplify this equation more using the result from section 1.
+\end{flushleft}
+\begin{align*}
+n^3 =  3 * \sum_{k=1}^{n} k^2 - \frac{3n(n+1)}{2} + n
+\end{align*}
+\begin{flushleft}
+Rearranging we get:
+\end{flushleft}
+\begin{align*}
+3 * \sum_{k=1}^{n} k^2 = n^3 - n + \frac{3n(n+1)}{2} 
+\end{align*}
+\begin{flushleft}
+Let's give the right hand side a common denominator, and simplify.
+\end{flushleft}
+\begin{align*}
+3 * \sum_{k=1}^{n} k^2 &= \frac{2n^3 - 2n + 3n(n+1)}{2} \\
+&= \frac{2n^3 - 2n + 3n^2 + 3n}{2} \\
+&= \frac{2n^3 + 3n^2 + n}{2} \\
+&= \frac{n(2n^2 + 3n + 1)}{2} \\
+&= \frac{n(n+1)(2n+1)}{2} 
+\end{align*}
+\begin{flushleft}
+Now we can divide both sides of the equation by 3.
+\end{flushleft}
+\begin{flushleft}
+This gives us the formula for the sum of squares:
+\end{flushleft}
+\begin{align}
+\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}
+\end{align}
+\begin{flushleft}
+The same technique we used in the first section (telescoping) helps us find a formula for the sum of squares. We can use this technique to find a formula for the sum of cubes, fourths, and so on.
+\end{flushleft}
+\end{document}
