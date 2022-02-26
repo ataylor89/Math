@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\title{Finding the derivative of a polynomial function}
+\author{Andrew Taylor}
+\date{February 26 2022}
+\begin{document}
+\section{The derivative}
+
+\begin{definition}
+Let $f$ be a real-valued function and let $x_{0} \in \mathbb{R}$. The function $f$ is differentiable at $x_{0}$ if and only if the limit
+
+\begin{align*}
+\lim_{x \to x_{0}} \frac{f(x) - f(x_{0})}{x - x_{0}}
+\end{align*}
+
+exists. When the limit exists, we denote this limit by $f'(x_{0})$.
+\end{definition}
+
+\begin{definition}
+Let $f$ be a real-valued function. The derivative of $f$ is the function $f'$ whose domain $D_{f'}$ is the set of all real numbers on which $f$ is differentiable and which assigns to each $x \in D_{f'}$ the number
+\begin{align*}
+f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+\end{align*}
+
+Let $y = f(x)$. Another notation for the derivative is
+
+\begin{align*}
+f'(x) = \frac{dy}{dx} = \frac{df}{dx}
+\end{align*}
+\end{definition}
+
+\begin{theorem}
+Let $f(x) = x^{n}$. Then the derivative of $f$ is 
+
+\begin{align*}
+f'(x) = nx^{n-1}
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+\begin{align*}
+f'(x) &= \lim_{h \to 0} \frac{\displaystyle f(x+h) - f(x)}{\displaystyle h} \\
+&= \lim_{h \to 0} \frac{\displaystyle (x+h)^n - x^n}{\displaystyle h} \\
+&= \lim_{h \to 0} \frac{\displaystyle \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1} h + \binom{n}{2} x^{n-2} h^2 + ... + \binom{n}{n} h^n - x^n}{\displaystyle h} \\
+&= \lim_{h \to 0} \frac{\displaystyle \binom{n}{1} x^{n-1} h + \binom{n}{2} x^{n-2} h^2 + ... + \binom{n}{n} h^n}{\displaystyle h} \\
+&= \lim_{h \to 0} \binom{n}{1} x^{n-1} + \binom{n}{2} x^{n-2} h + ... + \binom{n}{n} h^{n-1} \\
+&= \binom{n}{1} x^{n-1} \\
+&= nx^{n-1}
+\end{align*}
+
+In the above proof we see that $\displaystyle \binom{n}{0} x^{n} = x^{n}$ cancels out with $-x^{n}$ \\
+
+In addition, after dividing by $h$, every term in the polynomial that has a coefficient of $h$ goes to zero as $h$ approaches zero. \\
+
+We are left with the term $\displaystyle \binom{n}{0} x^{n-1} = nx^{n-1}$ \\
+
+Thus 
+
+\begin{align*}
+f'(x) = \frac{df}{dx} = nx^{n-1}
+\end{align*}
+\end{proof}
+\end{document}
