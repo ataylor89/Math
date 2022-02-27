@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{amsmath, amssymb, amsthm}
 \newtheorem{definition}{Definition}
+\newtheorem{problem}{Problem}
 \title{Limits}
 \author{Andrew Taylor}
 \date{February 27 2022}
@@ -47,5 +48,34 @@ We write this as
 \end{equation*}
 
 \end{definition}
+
+\begin{problem}
+Let $f:\mathbb{R} \setminus {0} \to \mathbb{R}$ be defined by 
+
+\begin{equation*}
+f(x) = \frac{x}{x}
+\end{equation*}
+
+Find the limit of $f$ as x approaches zero, if it exists.
+\end{problem}
+
+\begin{proof}
+Let $\epsilon > 0$ and $\delta = 10$. Let $x$ be a real number such that $0 < |x| < \delta$.
+
+\begin{align*}
+|f(x) - 1| &= |\frac{x}{x} - 1| \\
+&= |1 - 1| \\
+&= 0
+\end{align*}
+
+As zero is always less than $\epsilon$, the limit of $f$ as x approaches zero is one.
+
+\begin{equation*}
+\lim_{x \to 0} f(x) = 1
+\end{equation*}
+
+In this example we chose $\delta = 10$, but we can choose any $\delta > 0$ (no matter how small or big) because of the betweenness property of real numbers.
+
+\end{proof}
 
 \end{document}
