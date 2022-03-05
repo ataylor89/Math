@@ -82,14 +82,14 @@ Now we can solve each limit separately.
 &=  \frac{b^{m+1}}{m+1} 
 \end{align*}
 
-We know that B is bounded above by $|c * n^{m}|$ for some $c \in \mathbb{R}$. (Let c be the highest magnitude coefficient of the polynomial in B.) \\
+Let C be the highest magnitude coefficient of the polynomial in B. We know that B is bounded above and below by $\pm (C n^{m})$. \\ 
 
-It follows that $\displaystyle \frac{b^{m+1}}{n^{m+1}} B$ is bounded above by $\displaystyle \left|\frac{c * n^{m} * b^{m+1}}{n^{m+1}}\right|$. \\
+It follows that $\displaystyle \frac{b^{m+1}}{n^{m+1}} B$ is bounded above and below by $\displaystyle \pm \frac{b^{m+1}}{n^{m+1}} Cn^{m}$ \\
 
 We also know that
 
 \begin{align*}
-\lim_{n \to \infty} \left|\frac{c * n^{m} * b^{m+1}}{n^{m+1}}\right| = \lim_{n \to \infty} \left|\frac{c * b^{m+1}}{n}\right| = 0
+\lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} C n^{m}  = \lim_{n \to \infty} \frac{C b^{m+1}}{n} = 0
 \end{align*} 
 
 Thus, by the pinching theorem:
