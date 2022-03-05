@@ -52,6 +52,76 @@ We can divide both sides by $m+1$.
 \end{proof}
 
 \begin{lemma}
+Let $b_{n}$ be the sequence 
+
+\begin{equation*}
+b_{n} = \frac{1}{m+1} \displaystyle \sum_{k=1}^{n} \left( \binom{m+1}{2} k^{m-1} (-1)^2 +  \binom{m+1}{3} k^{m-2} (-1)^3 + ... +  \binom{m+1}{m+1} k^{0} (-1)^{m+1} \right) 
+\end{equation*}
+\\
+for some $m \in \mathbb{N}$. Then there exists a $C \in \mathbb{R}$ such that
+
+\begin{equation*}
+-C \, n^{m} <= b_{n} <= C \, n^{m}
+\end{equation*}
+
+\end{lemma}
+
+\begin{proof}
+Define the polynomial $P(k)$ as 
+
+\begin{equation*}
+P(k) = \binom{m+1}{2} k^{m-1} (-1)^2 +  \binom{m+1}{3} k^{m-2} (-1)^3 + ... +  \binom{m+1}{m+1} k^{0} (-1)^{m+1}
+\end{equation*}
+\\
+Now we can write 
+
+\begin{equation*}
+b_{n} = \frac{1}{m+1} \displaystyle \sum_{k=1}^{n} P(k)
+\end{equation*}
+\\
+There exists a polynomial 
+
+\begin{equation*}
+Q(k) = C \, k^{m-1}
+\end{equation*}
+\\
+such that 
+
+\begin{equation*}
+|P(k)| \le |Q(k)|
+\end{equation*}
+\\
+for some $C \in \mathbb{R}$. \\
+\\
+Let $c_{n}$ be the sequence defined by
+
+\begin{equation*}
+c_{n} = \frac{1}{m+1} \displaystyle \sum_{k=1}^{n} Q(k)
+\end{equation*}
+\\
+We know that $|b_{n}| \le |c_{n}|$ since $|P(k)| \le |Q(k)|$ \\
+\\
+Furthermore we know that
+
+\begin{equation*}
+\left| \sum_{k=1}^{n} Q(k) \right| \le \left| Cn^{m} \right|
+\end{equation*}
+\\
+Thus
+
+\begin{equation*}
+|c_{n}| \le \left| \frac{Cn^{m}}{m+1} \right|
+\end{equation*}
+\\
+By the transitive property we get
+
+\begin{equation*}
+\frac{-Cn^{m}}{m+1} \le b_{n} \le \frac{Cn^{m}}{m+1} 
+\end{equation*}
+
+\end{proof}
+
+\begin{lemma}
 Let n and m be natural numbers. Let b be a real number.
 
 \begin{equation*}
@@ -82,9 +152,17 @@ Now we can solve each limit separately.
 &=  \frac{b^{m+1}}{m+1} 
 \end{align*}
 
-We know that B is bounded above and below by $\pm (C n^{m})$ for some $C \in \mathbb{R}$. \\
+We know from lemma 2 that there exists a $C \in \mathbb{R}$ such that 
 
-It follows that $\displaystyle \frac{b^{m+1}}{n^{m+1}} B$ is bounded above and below by $\displaystyle \pm \frac{b^{m+1}}{n^{m+1}} Cn^{m}$ \\
+\begin{equation*}
+|B| \le |C \, n^{m}|
+\end{equation*}
+
+It follows that
+
+\begin{equation*}
+\left| \frac{b^{m+1}}{n^{m+1}} B \right| \le \left| \frac{b^{m+1}}{n^{m+1}} Cn^{m} \right|
+\end{equation*}
 
 We also know that
 
@@ -125,7 +203,7 @@ We can form an equation using the Riemann integral.
 &= \lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} \sum_{k=1}^{n} k^{m}
 \end{align*}
 
-We can substitute the result from lemma 2, which gives us
+We can substitute the result from lemma 3, which gives us
 
 \begin{align*}
 \int_{0}^{b} f(x) \,dx &= \lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} \sum_{k=1}^{n} k^{m} \\
