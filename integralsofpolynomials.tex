@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\title{Integrating a polynomial}
+\author{Andrew Taylor}
+\date{March 5 2022}
+\begin{document}
+\maketitle
+
+\begin{lemma}
+Let n and m be natural numbers. Then
+
+\begin{equation*}
+\sum_{k=1}^{n} k^{m} = \frac{n^{m+1} + \displaystyle \sum_{k=1}^{n} \left( \binom{m+1}{2} k^{m-1} (-1)^2 +  \binom{m+1}{3} k^{m-2} (-1)^3 + ... +  \binom{m+1}{m+1} k^{0} (-1)^{m+1} \right) }{m+1}
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Consider the sum 
+
+\begin{equation*}
+\sum_{k=1}^{n} \left( k^{m+1} - (k-1)^{m+1} \right)
+\end{equation*}
+
+We know that this sum telescopes, which is to say, all but the first and last terms cancel.
+
+\begin{equation*}
+\sum_{k=1}^{n} \left( k^{m+1} - (k-1)^{m+1} \right) = n^{m+1} - 0^{m+1} = n^{m+1}
+\end{equation*}
+
+We can expand the binomial $(k-1)^{m+1}$ and get
+
+\begin{align*}
+n^{m+1} &= \sum_{k=1}^{n} \left( k^{m+1} - (k-1)^{m+1} \right) \\
+&= \sum_{k=1}^{n} \left( k^{m+1} - \left( \binom{m+1}{0} k^{m+1} (-1)^{0} + \binom{m+1}{1} k^{m} (-1)^{1} + ... + \binom{m+1}{m+1} k^{0} (-1)^{m+1} \right) \right) \\
+&= \sum_{k=1}^{n} -1 \left( \binom{m+1}{1} k^{m} (-1)^{1} + \binom{m+1}{2} k^{m-1} (-1)^{2} + ... + \binom{m+1}{m+1} k^{0} (-1)^{m+1} \right)  
+\end{align*}
+
+We can solve the above equation for the term $\displaystyle \sum_{k=1}^{n} k^{m}$
+
+\begin{equation*}
+\sum_{k=1}^{n} \binom{m+1}{1} k^{m} = n^{m+1} + \displaystyle \sum_{k=1}^{n} \left( \binom{m+1}{2} k^{m-1} (-1)^{2} + ... + \binom{m+1}{m+1} k^{0} (-1)^{m+1} \right) 
+\end{equation*}
+
+We can divide both sides by $m+1$.
+
+\begin{equation*}
+\sum_{k=1}^{n} k^{m} = \frac{n^{m+1} + \displaystyle \sum_{k=1}^{n} \left( \binom{m+1}{2} k^{m-1} (-1)^2 +  \binom{m+1}{3} k^{m-2} (-1)^3 + ... +  \binom{m+1}{m+1} k^{0} (-1)^{m+1} \right) }{m+1}
+\end{equation*}
+
+\end{proof}
+
+\begin{lemma}
+Let n and m be natural numbers. Let b be a real number.
+
+\begin{equation*}
+\lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} \sum_{k=1}^{n} k^{m} = \displaystyle \frac{b^{m+1}}{m+1}
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+
+Define A and B as 
+
+\begin{align*}
+A &= \displaystyle \frac{n^{m+1}}{m+1} \\
+B &= \frac{1}{m+1} \displaystyle \sum_{k=1}^{n} \left( \binom{m+1}{2} k^{m-1} (-1)^2 +  \binom{m+1}{3} k^{m-2} (-1)^3 + ... +  \binom{m+1}{m+1} k^{0} (-1)^{m+1} \right) 
+\end{align*}
+
+Then
+
+\begin{align*}
+\lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} \sum_{k=1}^{n} k^{m} &= \lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} (A + B) \\
+&= \lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} A + \lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} B \\
+\end{align*}
+
+Now we can solve each limit separately.
+
+\begin{align*}
+\lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} A &=  \lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} \frac{n^{m+1}}{m+1} \\
+&=  \frac{b^{m+1}}{m+1} 
+\end{align*}
+
+Using an equation from lemma 1, we know that B is bounded above by $|n^{m}|$. \\
+
+This means that $\displaystyle \frac{b^{m+1}}{n^{m+1}} B$ is bounded above by $\displaystyle \frac{b^{m+1}}{n^{m+1}} |n^{m}|$. \\
+
+We also know that
+
+\begin{align*}
+\lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} n^{m} = \lim_{n \to \infty} \frac{b^{m+1}}{n} = 0
+\end{align*} 
+
+Thus, by the pinching theorem:
+
+\begin{align*}
+\lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} B = 0
+\end{align*}
+
+This gives us
+
+\begin{align*}
+\lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} \sum_{k=1}^{n} k^{m} &= \lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} (A + B) \\
+&= \lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} A + \lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} B \\
+&= \frac{b^{m+1}}{m+1} + 0 \\
+&= \frac{b^{m+1}}{m+1} 
+\end{align*}
+
+\end{proof}
+
+\begin{theorem}
+Let $m \in \mathbb{N}$ and let $f: \mathbb{R} \to \mathbb{R}$ be defined by $f(x) = x^{m}$. Then
+\begin{equation*}
+\int_{0}^{b} f(x) \,dx  = \frac{b^{m+1}}{m+1}
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+We can form an equation using the Riemann integral.
+
+\begin{align*}
+\int_{0}^{b} f(x) \,dx &= \lim_{n \to \infty} \frac{b - 0}{n} \sum_{k=1}^{n} f(0 + \frac{k(b-0)}{n}) \\
+&= \lim_{n \to \infty} \frac{b}{n} \sum_{k=1}^{n} \left( \frac{kb}{n} \right) ^{m} \\
+&= \lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} \sum_{k=1}^{n} k^{m}
+\end{align*}
+
+We can substitute the result from lemma 2, which gives us
+
+\begin{align*}
+\int_{0}^{b} f(x) \,dx &= \lim_{n \to \infty} \frac{b^{m+1}}{n^{m+1}} \sum_{k=1}^{n} k^{m} \\
+&= \frac{b^{m+1}}{m+1}
+\end{align*}
+
+\end{proof}
+
+\end{document}
