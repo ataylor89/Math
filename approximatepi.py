@@ -12,10 +12,16 @@ def approximate_pi(n):
         area += f(x) * dx
     return 4 * area
 
-if __name__ == "__main__":
+def main():
+    if len(sys.argv) < 3:
+        print("Usage: python %s <precision> <number_of_rectangles>" %sys.argv[0])
+        return
     precision = int(sys.argv[1])
     n = int(sys.argv[2])
     print("Using %d rectangles to approximate Pi..." %n)
     approximation = approximate_pi(n)
     print("Ap: %0.*f" %(precision, approximation))
     print("Pi: %0.*f" %(precision, math.pi))
+
+if __name__ == "__main__":
+    main()
