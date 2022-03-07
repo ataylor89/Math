@@ -64,9 +64,9 @@ class System:
         except Exception as err:
             print("Error parsing equations")
 
-def solve(coefficients, variables, result):
-    coeff_inv = numpy.linalg.inv(coefficients)
-    return numpy.matmul(result, coeff_inv)
+    def solve(self):
+        coeff_inv = numpy.linalg.inv(self.coefficients)
+        return numpy.matmul(self.results, coeff_inv)
 
 def main():
     if len(sys.argv) < 2:
@@ -83,7 +83,7 @@ def main():
         print(system.variables)
         print("Results matrix")
         print(system.results)
-        solution = solve(system.coefficients, system.variables, system.results)
+        solution = system.solve()
         print("Solution")
         print(solution)
 
