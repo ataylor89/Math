@@ -4,6 +4,7 @@ import string
 
 class Equation:
     def __init__(self, s, vars):
+        self.text = s
         self.coefficients = []
         self.variables = vars
         self.result = 0
@@ -16,26 +17,23 @@ class Equation:
         for i in range(len(s)):
             if s[i] == '+':
                 substr = s[last:i].strip()
-                coeff = substr[:-1]
                 var = substr[-1]
                 if var in vars:
-                    coeffs[var] = sign * int(coeff)
+                    coeffs[var] = sign * 1 if len(substr) <= 1 else sign * int(substr[:-1])
                 sign = 1
                 last = i+1
             elif s[i] == '-':
                 substr = s[last:i].strip()
-                coeff = substr[:-1]
                 var = substr[-1]
                 if var in vars:
-                    coeffs[var] = sign * int(coeff)
+                    coeffs[var] = sign * 1 if len(substr) <= 1 else sign * int(substr[:-1])
                 sign = -1
                 last = i+1
             elif s[i] == '=':
                 substr = s[last:i].strip()
-                coeff = substr[:-1]
                 var = substr[-1]
                 if var in vars:
-                    coeffs[var] = sign * int(coeff)
+                    coeffs[var] = sign * 1 if len(substr) <= 1 else sign * int(substr[:-1])
                 substr = s[i+1:].strip()
                 self.result = int(substr)
                 break
@@ -62,11 +60,11 @@ class System:
                 self.coefficients.append(equation.coefficients)
                 self.results.append(equation.result)
         except Exception as err:
-            print("Error parsing equations")
+            print("Error parsing equations: " + str(err))
 
     def solve(self):
         coeff_inv = numpy.linalg.inv(self.coefficients)
-        return numpy.matmul(self.results, coeff_inv)
+        return numpy.matmul(coeff_inv, self.results)
 
 def main():
     if len(sys.argv) < 2:
