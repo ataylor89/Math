@@ -29,7 +29,6 @@ def getcol(A, i):
         return col
     return A[i]
 
-
 def zeromatrix(m, n):
     return [[0 for _n in range(n)] for _m in range(m)]
 
