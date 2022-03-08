@@ -39,6 +39,9 @@ def mul(A, B):
     if nrowsA < 1 or nrowsB < 1:
         return None
 
+    elif ncolsA != nrowsB:
+        return None
+
     elif nrowsA == 1 and nrowsB == 1:
         return dotproduct(A, B)
 
@@ -102,14 +105,17 @@ def main():
     M5 = [[2,-1,0],[3,-5,2],[1,4,-2]]
     M6 = [[5,-7,2,2],[0,3,0,-4],[-5,-8,0,3],[0,5,0,-6]]
     M7 = [3, 4, 2]
-    M8 = [[13, 9, 7, 15], [8, 7, 4, 6], [6, 4, 0, 3]]
-    matrices = [M0, M1, M2, M3, M4, M5, M6, M7, M8]
+    M8 = [[3, 4, 2], [4, 5, 3]]
+    M9 = [[13, 9, 7, 15], [8, 7, 4, 6], [6, 4, 0, 3]]
+
+    matrices = [M0, M1, M2, M3, M4, M5, M6, M7, M8, M9]
     for i in range(len(matrices)):
         M = matrices[i]
         print("Matrix %d: %s" %(i, str(M)))
         if issquare(M):
             print("Determinant: %d" %det(M))
-    print("M7 x M8 = %s" %str(mul(M7, M8)))
+    print("M7 x M9 = %s" %str(mul(M7, M9)))
+    print("M8 x M9 = %s" %str(mul(M8, M9)))
 
 if __name__ == "__main__":
     main()
