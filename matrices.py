@@ -29,7 +29,7 @@ def main():
     M7 = [[5,-7,2,2],[0,3,0,-4],[-5,-8,0,3],[0,5,0,-6]]
     matrices = [M1, M2, M3, M4, M5, M6, M7]
     for M in matrices:
-        print(M)
+        print("Matrix: " + str(M))
         print("Determinant: %d" %det(M))
 
 if __name__ == "__main__":
