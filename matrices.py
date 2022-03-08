@@ -14,8 +14,8 @@ def det(A):
                 for col in range(0, dim):
                     if col != i:
                         submatrix[row-1].append(A[row][col])  
-            print("Coefficient: " + str(coeff))
-            print("Submatrix: " + str(submatrix))
+            # print("Coefficient: " + str(coeff))
+            # print("Submatrix: " + str(submatrix))
             D += coeff * det(submatrix)
         return D
 
@@ -29,7 +29,8 @@ def main():
     M7 = [[5,-7,2,2],[0,3,0,-4],[-5,-8,0,3],[0,5,0,-6]]
     matrices = [M1, M2, M3, M4, M5, M6, M7]
     for M in matrices:
-        print("Determinant: %d\n" %det(M))
+        print(M)
+        print("Determinant: %d" %det(M))
 
 if __name__ == "__main__":
     main()
