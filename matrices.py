@@ -29,8 +29,8 @@ def getcol(A, i):
         return col
     return A[i]
 
-def zeromatrix(m, n):
-    return [[0 for _n in range(n)] for _m in range(m)]
+def fillmatrix(m, n, val):
+    return [[val for _n in range(n)] for _m in range(m)]
 
 def mul(A, B):
     nrowsA, ncolsA = nrows(A), ncols(A)
@@ -62,7 +62,7 @@ def mul(A, B):
         return result
 
     else:
-        result = zeromatrix(nrowsA, ncolsB)
+        result = fillmatrix(nrowsA, ncolsB, 0)
         for row in range(nrowsA):
             a = A[row]
             for col in range(ncolsB):
@@ -73,29 +73,54 @@ def mul(A, B):
 
 def issquare(A):
     dimA = dim(A)
-    return dimA[0] == dimA[1] and dimA[0] > 1
+    return dimA and dimA[0] == dimA[1]
 
 def det(A):
-    if A is None or len(A) < 2:
-        return None
-    if len(A) == 2:
+    if not A or not issquare(A):
+        return 0
+    elif len(A) == 1:
+        return A[0]
+    elif len(A) == 2:
         return A[0][0] * A[1][1] - A[0][1] * A[1][0]
     else:
         dim = len(A)
         D = 0
-        for i in range(0, dim):
-            coeff = A[0][i] * (-1)**i
-            submatrix = []
-            for row in range(1, dim):
-                submatrix.append([])
-                for col in range(0, dim):
-                    if col != i:
-                        submatrix[row-1].append(A[row][col])  
-            # print("Coefficient: " + str(coeff))
-            # print("Submatrix: " + str(submatrix))
-            D += coeff * det(submatrix)
+        for j in range(dim):
+            coeff = A[0][j] * (-1)**j
+            submatrixj = submatrix(A, 0, j)
+            D += coeff * det(submatrixj)
         return D
 
+def hasinverse(A):
+    return det(A) != 0
+
+def submatrix(A, i, j):
+    dimA = len(A)
+    return [[A[row][col] for col in range(dimA) if col != j] for row in range(dimA) if row != i]
+
+def minors(A):
+    dim = len(A)
+    return [[det(submatrix(A, row, col)) for col in range(dim)] for row in range(dim)]
+
+def cofactors(A):
+    dim = len(A)
+    return [[(-1)**(row+col) * A[row][col] for col in range(dim)] for row in range(dim)]
+
+def adjugate(A):
+    dim = len(A)
+    return [[A[col][row] for col in range(dim)] for row in range(dim)]
+
+def inv(A):
+    if hasinverse(A):
+        dimA = len(A)
+        D = det(A)
+        A = minors(A)
+        A = cofactors(A)
+        A = adjugate(A)
+        A = [[A[row][col] * 1/D for col in range(dimA)] for row in range(dimA)]
+        return A
+    return None
+    
 def main():
     M0 = [[6,1,1], [4,-2,5],[2,8,7]]
     M1 = [[3,0,-1],[2,-5,4],[-3,1,3]]
@@ -107,8 +132,8 @@ def main():
     M7 = [3, 4, 2]
     M8 = [[3, 4, 2], [4, 5, 3]]
     M9 = [[13, 9, 7, 15], [8, 7, 4, 6], [6, 4, 0, 3]]
-
-    matrices = [M0, M1, M2, M3, M4, M5, M6, M7, M8, M9]
+    M10 = [[3,0,2],[2,0,-2],[0,1,1]]
+    matrices = [M0, M1, M2, M3, M4, M5, M6, M7, M8, M9, M10]
     for i in range(len(matrices)):
         M = matrices[i]
         print("Matrix %d: %s" %(i, str(M)))
@@ -116,6 +141,10 @@ def main():
             print("Determinant: %d" %det(M))
     print("M7 x M9 = %s" %str(mul(M7, M9)))
     print("M8 x M9 = %s" %str(mul(M8, M9)))
+    invM10 = inv(M10)
+    print("Inverse of M10: %s" %str(invM10))
+    M11 = mul(M10, invM10)
+    print(M11)
 
 if __name__ == "__main__":
     main()
