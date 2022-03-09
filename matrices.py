@@ -2,7 +2,7 @@ def dotproduct(a, b):
     if len(a) == len(b):
         sum = 0
         for i in range(len(a)):
-            sum += a[i] * b[i] 
+            sum += a[i] * b[i]
         return sum
     return None
 
@@ -110,14 +110,17 @@ def main():
     for i in range(len(matrices)):
         M = matrices[i]
         printm(f"Matrix {i}:", M)
-        if issquare(M):
-            print("Determinant: %d" %det(M))
     printm("M7 x M9 = ", mul(M7, M9))
     printm("M8 x M9 = ", mul(M8, M9))
     invM10 = inv(M10)
+    printm("M10: ", M10)
+    printm("det(M10): ", det(M10))
     printm("Inverse of M10: ", invM10)
     M11 = mul(M10, invM10)
-    printm("M10 x invM10", M11)
+    printm("M10 x invM10: ", M11)
+    a = [3,0,2]
+    b = [0.2,0.3,-0.3]
+    print("[3,0,2] dot [0.2,0.3,-0.3] %f" %dotproduct(a, b))
 
 if __name__ == "__main__":
     main()
