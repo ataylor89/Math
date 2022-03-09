@@ -7,9 +7,11 @@ def dotproduct(a, b):
     return None
 
 def dim(A):
-    if not A or len(A) == 0:
+    if not A:
+        return None
+    elif len(A) == 0:
         return (0, 0)
-    if isinstance(A[0], list):
+    elif isinstance(A[0], list):
         return (len(A), len(A[0]))
     return (1, len(A))
 
@@ -20,17 +22,7 @@ def ncols(A):
     return dim(A)[1]
 
 def getcol(A, i):
-    if not A or len(A) == 0:
-        return None
-    elif isinstance(A[0], list):
-        col = []
-        for row in range(len(A)):
-            col.append(A[row][i])
-        return col
-    return A[i]
-
-def fillmatrix(m, n, val):
-    return [[val for _n in range(n)] for _m in range(m)]
+    return [A[row][i] for row in range(len(A))]
 
 def mul(A, B):
     nrowsA, ncolsA = nrows(A), ncols(A)
@@ -38,46 +30,29 @@ def mul(A, B):
 
     if nrowsA < 1 or nrowsB < 1:
         return None
-
+    
     elif ncolsA != nrowsB:
         return None
-
+    
     elif nrowsA == 1 and nrowsB == 1:
         return dotproduct(A, B)
-
+    
     elif nrowsA == 1 and nrows(B) > 1:
-        result = []
-        for col in range(ncolsB):
-            b = getcol(B, col)
-            Ab = dotproduct(A, b)
-            result.append(Ab)
-        return result
+        return [dotproduct(A, getcol(B, col)) for col in range(ncolsB)]
     
     elif nrowsA > 1 and nrowsB == 1:
-        result = []
-        for row in range(nrowsA):
-            a = A[row]
-            aB = dotproduct(a, B)
-            result.append(aB)
-        return result
-
+        return [dotproduct(A[row], B) for row in range(nrowsA)]
+    
     else:
-        result = fillmatrix(nrowsA, ncolsB, 0)
-        for row in range(nrowsA):
-            a = A[row]
-            for col in range(ncolsB):
-                b = getcol(B, col)
-                ab = dotproduct(a, b)
-                result[row][col] = ab
-        return result
+        return [[dotproduct(A[row], getcol(B, col)) for col in range(ncolsB)] for row in range(nrowsA)]
 
 def issquare(A):
     dimA = dim(A)
-    return dimA and dimA[0] == dimA[1]
+    return dimA[0] == dimA[1]
 
 def det(A):
-    if not A or not issquare(A):
-        return 0
+    if not issquare(A):
+        return None
     elif len(A) == 1:
         return A[0]
     elif len(A) == 2:
@@ -92,7 +67,8 @@ def det(A):
         return D
 
 def hasinverse(A):
-    return det(A) != 0
+    D = det(A)
+    return D and D != 0
 
 def submatrix(A, i, j):
     dimA = len(A)
@@ -120,7 +96,10 @@ def inv(A):
         A = [[A[row][col] * 1/D for col in range(dimA)] for row in range(dimA)]
         return A
     return None
-    
+
+def printm(label, matrix):
+    print("%s%s" %(label, str(matrix)))
+
 def main():
     M0 = [[6,1,1], [4,-2,5],[2,8,7]]
     M1 = [[3,0,-1],[2,-5,4],[-3,1,3]]
@@ -136,15 +115,15 @@ def main():
     matrices = [M0, M1, M2, M3, M4, M5, M6, M7, M8, M9, M10]
     for i in range(len(matrices)):
         M = matrices[i]
-        print("Matrix %d: %s" %(i, str(M)))
+        printm(f"Matrix {i}:", M)
         if issquare(M):
             print("Determinant: %d" %det(M))
-    print("M7 x M9 = %s" %str(mul(M7, M9)))
-    print("M8 x M9 = %s" %str(mul(M8, M9)))
+    printm("M7 x M9 = ", mul(M7, M9))
+    printm("M8 x M9 = ", mul(M8, M9))
     invM10 = inv(M10)
-    print("Inverse of M10: %s" %str(invM10))
+    printm("Inverse of M10: ", invM10)
     M11 = mul(M10, invM10)
-    print(M11)
+    printm("M10 x invM10", M11)
 
 if __name__ == "__main__":
     main()
