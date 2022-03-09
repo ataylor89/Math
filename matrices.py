@@ -30,19 +30,14 @@ def mul(A, B):
 
     if nrowsA < 1 or nrowsB < 1:
         return None
-    
     elif ncolsA != nrowsB:
         return None
-    
     elif nrowsA == 1 and nrowsB == 1:
         return dotproduct(A, B)
-    
     elif nrowsA == 1 and nrows(B) > 1:
         return [dotproduct(A, getcol(B, col)) for col in range(ncolsB)]
-    
     elif nrowsA > 1 and nrowsB == 1:
         return [dotproduct(A[row], B) for row in range(nrowsA)]
-    
     else:
         return [[dotproduct(A[row], getcol(B, col)) for col in range(ncolsB)] for row in range(nrowsA)]
 
