@@ -111,12 +111,12 @@ def main():
     matrices = [M0, M1, M2, M3, M4, M5, M6, M7, M8, M9, M10]
     for i in range(len(matrices)):
         M = matrices[i]
-        printm(f"Matrix {i}:", M)
+        printm(f"Matrix {i}: ", M)
     printm("M7 x M9 = ", mul(M7, M9))
     printm("M8 x M9 = ", mul(M8, M9))
     invM10 = inv(M10)
     printm("M10: ", M10)
-    print("det(M10): ", det(M10))
+    print("det(M10): %d" %det(M10))
     printm("Inverse of M10: ", invM10)
     M11 = mul(M10, invM10)
     printm("M10 x invM10: ", M11)
