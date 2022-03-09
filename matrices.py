@@ -27,7 +27,6 @@ def getcol(A, i):
 def mul(A, B):
     nrowsA, ncolsA = nrows(A), ncols(A)
     nrowsB, ncolsB = nrows(B), ncols(B)
-
     if nrowsA < 1 or nrowsB < 1:
         return None
     elif ncolsA != nrowsB:
