@@ -91,7 +91,9 @@ def inv(A):
         return A
     return None
 
-def printm(label, matrix):
+def printm(label, matrix, precision=1):
+    if dim(matrix)[0] > 1:
+        matrix = [["{val:.{precision}f}".format(precision=precision, val=val) for val in row] for row in matrix]
     print("%s%s" %(label, str(matrix)))
 
 def main():
@@ -114,7 +116,7 @@ def main():
     printm("M8 x M9 = ", mul(M8, M9))
     invM10 = inv(M10)
     printm("M10: ", M10)
-    printm("det(M10): ", det(M10))
+    print("det(M10): ", det(M10))
     printm("Inverse of M10: ", invM10)
     M11 = mul(M10, invM10)
     printm("M10 x invM10: ", M11)
