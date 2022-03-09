@@ -36,9 +36,9 @@ def mul(A, B):
     elif nrowsA == 1 and nrows(B) > 1:
         return [dotproduct(A, getcol(B, col)) for col in range(ncolsB)]
     elif nrowsA > 1 and nrowsB == 1:
-        return [dotproduct(A[row], B) for row in range(nrowsA)]
+        return [dotproduct(row, B) for row in A]
     else:
-        return [[dotproduct(A[row], getcol(B, col)) for col in range(ncolsB)] for row in range(nrowsA)]
+        return [[dotproduct(row, getcol(B, col)) for col in range(ncolsB)] for row in A]
 
 def issquare(A):
     dimA = dim(A)
