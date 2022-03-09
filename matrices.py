@@ -93,7 +93,7 @@ def inv(A):
 
 def printm(label, matrix, precision=1):
     if dim(matrix)[0] > 1:
-        matrix = [["{val:.{precision}f}".format(precision=precision, val=val) for val in row] for row in matrix]
+        matrix = [["{val:.{p}f}".format(p=precision, val=val) for val in row] for row in matrix]
     print("%s%s" %(label, str(matrix)))
 
 def main():
@@ -118,11 +118,8 @@ def main():
     printm("M10: ", M10)
     print("det(M10): %d" %det(M10))
     printm("Inverse of M10: ", invM10)
-    M11 = mul(M10, invM10)
-    printm("M10 x invM10: ", M11)
-    a = [3,0,2]
-    b = [0.2,0.3,-0.3]
-    print("[3,0,2] dot [0.2,0.3,-0.3] %f" %dotproduct(a, b))
+    printm("M10 x invM10: ", mul(M10, invM10))
+    printm("invM10 x M10: ", mul(invM10, M10))
 
 if __name__ == "__main__":
     main()
