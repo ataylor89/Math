@@ -21,8 +21,8 @@ def nrows(A):
 def ncols(A):
     return dim(A)[1]
 
-def getcol(A, i):
-    return [A[row][i] for row in range(len(A))]
+def getcol(A, col):
+    return [row[col] for row in A]
 
 def mul(A, B):
     nrowsA, ncolsA = nrows(A), ncols(A)
