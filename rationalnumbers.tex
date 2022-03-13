@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\title{Rational numbers}
+\author{Andrew Taylor}
+\date{March 12 2022}
+\begin{document}
+\maketitle
+\begin{definition}
+Let A and B be sets. The Cartesian product of A and B, denoted $A \times B$, is the set
+\begin{equation*}
+A \times B = \{(a, b) \mid a \in A, b \in B\}
+\end{equation*}
+\end{definition}
+\begin{definition}
+Let X be a set. A relation R on X is a subset of $X \times X$. 
+\\
+\\
+If $(a, b) \in R$, we say ``a is related to b'', and write $a \sim b$.
+\end{definition}
+\begin{definition}
+Let X be a set. An equivalence relation R on X is a relation such that
+\begin{enumerate}
+\item For all $a \in X$, $(a, a) \in R$
+\item For all $a, b \in X$, if $(a, b) \in R$, then $(b, a) \in R$
+\item For all $a, b, c \in X$, if $(a, b) \in R$ and $(b, c) \in R$, then $(a, c) \in R$
+\end{enumerate}
+If $(a, b) \in R$, we say ``a is equivalent to b'', and write $a \sim b$.
+\end{definition}
+\begin{definition}
+Let X be a set and let R be an equivalence relation on X. Let $a \in X$. The equivalence class of a, denoted $C(a)$, is defined by 
+\begin{equation*}
+C(a) = \{b \in X \mid b \sim a\}
+\end{equation*}
+\end{definition}
+\begin{definition}
+Let $F = \{(a, b) \mid a, b \in \mathbb{Z}\  and \  b \ne 0\}$. Let $(a, b), (c, d) \in X$. 
+\\
+\\
+We define the relation $\sim$ on F as $(a, b) \sim (c, d)$ if $ad = bc$. 
+\end{definition}
+\begin{theorem}
+The relation $\sim$ is an equivalence relation on F.
+\end{theorem}
+\begin{proof}
+Let $(a, b) \in F$. We know that $(a, b) \sim (a, b)$ because $a * b = b * a$. 
+\\
+\\
+Let $(a, b), (c, d) \in F$ such that $(a, b) \sim (c, d)$. By definition, $ad = bc$. Remember that $=$ is an equivalence relation on the integers. By the symmetric property, $bc = ad$. Since multiplication is commutative, we can write, $cb = da$. This is the equation we want. The equation $cb = da$ tells us that $(c, d) \sim (a, b)$. 
+\\
+\\
+Let $(a, b), (c, d), (e, f) \in F$ such that $(a, b) \sim (c, d)$ and $(c, d) \sim (e, f)$. 
+\\
+\\
+Then $ad = bc$ (1) and $cf = de$ (2). 
+\\
+\\
+We can multiply both sides of equation (1) by f.
+\begin{equation*}
+adf = bcf
+\end{equation*}
+Now we can substitute $de$ for $cf$ in the above equation.
+\begin{equation*}
+adf = bde
+\end{equation*}
+We know that d is nonzero by definition, so we can divide both sides by $d$.
+\begin{equation*}
+af = be
+\end{equation*}
+Thus $(a, b) \sim (e, f)$. 
+\\
+\\
+The relation $\sim$ satisfies the reflexive property, the symmetric property, and the transitive property. Therefore $\sim$ is an equivalence relation on F.
+\end{proof}
+
+\begin{definition}
+We define the rational numbers $\mathbb{Q}$ as the set of equivalence classes in F determined by the equivalence relation $\sim$.
+\begin{equation*}
+\mathbb{Q} = \{C((a, b)) \mid (a, b) \in F\}
+\end{equation*}
+\end{definition}
+\end{document}
