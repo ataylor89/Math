@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{example}{Example}
+\newtheorem{problem}{Problem}
+\title{Repeating decimals}
+\author{Andrew Taylor}
+\date{March 13 2022}
+\begin{document}
+\maketitle
+
+\begin{definition}
+A terminating decimal is a rational number that has a finite number of nonzero digits.
+\end{definition}
+
+\begin{example}
+The number 1.125 is a terminating decimal. 
+
+\begin{equation*}
+1.125 = \frac{10}{8} = \frac{5}{4}
+\end{equation*}
+
+\end{example}
+
+\begin{definition}
+A repeating decimal is a rational number whose decimal representation repeats in regular cycles.
+\end{definition}
+
+\begin{example}
+The fraction $\displaystyle \frac{1}{3}$ is a repeating decimal.
+
+\begin{equation*}
+\frac{1}{3} = 0.33333... = 0.\overline{3}
+\end{equation*}
+
+\end{example}
+
+\begin{example}
+The number $\displaystyle \frac{1}{7}$ is a repeating decimal.
+\end{example}
+
+\begin{equation*}
+\frac{1}{7} = 0.142857142857... = 0.\overline{142857}
+\end{equation*}
+
+\begin{theorem}
+Every rational number can be written as either a terminating decimal or a repeating decimal.
+\end{theorem}
+
+\begin{proof}
+Let $\displaystyle \frac{a}{b}$ be a rational number. The division algorithm lets us write the equation 
+
+\begin{equation*}
+a = bq + r
+\end{equation*}
+
+for unique integers q and r.
+\\
+\\
+We can apply the division algorithm repeatedly, and each time we do, we will get a remainder $r$ from the set \{0, 1, 2, ... b-1\}. Since this set of possible remainders has $b$ elements, we are guaranteed after $b$ applications of the division algorithm to get a cycle or the remainder 0. If we get a cycle that does not end with zero, we have a repeating decimal. If we get zero, we have a terminating decimal. Therefore a rational number is either a terminating decimal or a repeating decimal.
+\end{proof}
+
+\begin{problem}
+Show that 0.136136136... is a rational number
+\end{problem}
+
+\begin{proof}
+Let $x = 0.136136136...$ 
+\\
+\\
+Then $1000x = 136.136136...$. 
+\\
+\\
+Subtracting, we get:
+
+\begin{align*}
+1000x - x &= 136 \\
+999x &= 136 \\
+x &= \frac{136}{999}
+\end{align*}
+
+Therefore $x = \displaystyle \frac{136}{999}$ and $x$ is a rational number.
+\end{proof}
+
+\end{document}
