@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm, graphicx}
+\usepackage[export]{adjustbox}
+
+\title{Linear transformations}
+\author{Andrew Taylor}
+\date{April 16 2022}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\maketitle
+
+\begin{definition}
+A function T from $\mathbb{R}^m$ to $\mathbb{R}^n$ is called a linear transformation if there exists an $n \times m$ matrix A such that
+
+\begin{align*}
+T(\vec{x}) = A\vec{x}
+\end{align*}
+
+for all $\vec{x}$ in the vector space $\mathbb{R}^m$.
+\end{definition}
+
+\begin{theorem}
+A transformation T from $\mathbb{R}^m$ to $\mathbb{R}^n$ is linear if and only if
+
+\begin{align*}
+T(\vec{v} + \vec{w}) &= T(\vec{v}) + T(\vec{w}) \quad \textrm{for all vectors} \ \vec{v}, \vec{w} \in \mathbb{R}^m \\
+T(k\vec{v}) &= kT(\vec{v})  \quad \textrm{for all vectors} \ \vec{v} \in \mathbb{R}^m \ \textrm{and for all scalars} \ k \in \mathbb{R}
+\end{align*}
+
+\end{theorem}
+
+\begin{proof}
+Let $T(\vec{x}) = A\vec{x}$ be a linear transformation. Then we know that 
+ 
+\begin{align*}
+T(\vec{v} + \vec{w}) = A(\vec{v} + \vec{w}) = A\vec{v} + A\vec{w} = T(\vec{v}) + T(\vec{w})
+\end{align*}
+
+from the distributive property for matrices. We also know that 
+
+\begin{align*}
+T(k \vec{v}) = A(k \vec{v}) = k(A\vec{v}) = k T(\vec{v})
+\end{align*}
+
+from the rules of matrix multiplication. \\
+
+Let $T$ be a transformation from $\mathbb{R}^m$ to $\mathbb{R}^n$ that satisfies the properties
+
+\begin{align*}
+T(\vec{v} + \vec{w}) &= T(\vec{v}) + T(\vec{w}) & \forall \vec{v}, \vec{w} \in \mathbb{R}^m \\
+T(k\vec{v}) &= kT(\vec{v})  & \forall \vec{v} \in \mathbb{R}^m \textrm{ and } \forall k \in \mathbb{R}
+\end{align*}
+
+Let $e_{1},e_{2},...,e_{m}$ be the unit vectors of $\mathbb{R}^m$. We can write
+
+\begin{align*}
+T(\vec{x}) &= T(x_{1} e_{1} + x_{2} e_{2} + ... + x_{m} e_{m}) \\
+&= T(x_{1} e_{1}) + T(x_{2} e_{2}) + ... + T(x_{m} e_{m}) \\
+&= x_{1} T(e_{1}) + x_{2} T(e_{2}) + ... + x_{m} T(e_{m}) \\
+&= \begin{bmatrix} T(e_{1}) & T(e_{2}) & \cdots & T(e_{m}) \end{bmatrix} \begin{bmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{m} \end{bmatrix} \\
+&= \begin{bmatrix} T(e_{1}) & T(e_{2}) & \cdots & T(e_{m}) \end{bmatrix} \vec{x}
+\end{align*}
+
+Thus $T(\vec{x})$ is a linear transformation that has a matrix of transformation 
+
+\begin{align*}
+A = \begin{bmatrix} T(e_{1}) & T(e_{2}) & \cdots & T(e_{m}) \end{bmatrix}
+\end{align*}
+
+and can be written as $T(\vec{x}) = A\vec{x}$.
+
+\end{proof}
+
+\end{document}
