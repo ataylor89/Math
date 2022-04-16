@@ -7,6 +7,8 @@
 \date{April 16 2022}
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
 
 \begin{document}
 \maketitle
@@ -70,7 +72,34 @@ A = \begin{bmatrix} T(e_{1}) & T(e_{2}) & \cdots & T(e_{m}) \end{bmatrix}
 \end{align*}
 
 and can be written as $T(\vec{x}) = A\vec{x}$.
-
 \end{proof}
+
+The equation 
+
+\begin{align*}
+T(\vec{x}) = \begin{bmatrix} T(e_{1}) & T(e_{2}) & \cdots & T(e_{m}) \end{bmatrix} \vec{x}
+\end{align*}
+
+is important, as it holds true for all linear transformations. \\
+
+This equation can help us interpret a linear transformation geometrically, by looking at how each unit vector is transformed.
+
+\begin{problem}
+Interpret the linear transformation $T(\vec{x}) = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \vec{x}$ geometrically.
+\end{problem}
+
+\begin{solution}
+We can write
+
+\begin{align*}
+T(\vec{x}) = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \vec{x} = \begin{bmatrix} T(e_{1}) & T(e_{2})) \end{bmatrix} \vec{x}
+\end{align*}
+
+We see that $T(e_{1}) = \begin{bmatrix}0 \\ 1 \end{bmatrix}$ and $T(e_{2}) = \begin{bmatrix}1 \\ 0 \end{bmatrix}$. \\
+
+Thus the vector $[1, 0]$ goes to $[0, 1]$ and the vector $[0, 1]$ goes to $[1, 0]$. \\
+
+This transformation is accomplished by a reflection about the line spanned by the vector $[1, 1]$. Thus the linear transformation $T(\vec{x})$ reflects the vector $\vec{x}$ about the line spanned by the vector $[1, 1]$.
+\end{solution}
 
 \end{document}
