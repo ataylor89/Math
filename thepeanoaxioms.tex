@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newcommand{\inc}[1]{\mathrel{{{#1}+}+}}
+\title{The Peano axioms}
+\author{Andrew Taylor}
+\date{July 16 2022}
+\begin{document}
+\maketitle
+
+\begin{definition}
+An axiom is a fundamental rule that does not require proof.
+\end{definition}
+
+Axioms are essential to mathematics. When we construct a number system, we can start by defining the fundamental rules that numbers in the number system have to obey, in order to be a part of the number system. Then we can see whether there are any number systems that obey these rules. \\
+
+Likewise, when we construct a mathematical object, we can start by defining the fundamental rules that the object obeys. Then we can see whether there are any objects that obey these rules. In other words, we can see whether there are any objects that have these properties. \\
+
+In this paper, we will construct the natural numbers from the fundamental rules given by the Peano axioms. First we will lay out the fundamental rules (axioms) and then we will assume that there's a number system that obeys these rules. We will call this number system the natural numbers. And we may even make this assumption at the very beginning, before all the axioms are put into place. \\
+
+Why make the assumption? Well, to actually construct a number system that meets these rules, we have to find a means of constructing the number system. We can do that with set theory. But for the purposes of this paper, we will construct the natural numbers by assuming there's a set that satisfies the Peano axioms. \\
+
+After constructing the natural numbers, we can prove some theorems about the natural numbers. One theorem is that there are infinitely many natural numbers. Another is that there are infinitely many odd natural numbers and infinitely many even natural numbers. Another is that there are infinitely many prime numbers.
+
+\begin{definition}
+Let X and Y be sets. A function from X to Y is a correspondence between X and Y such that for every $x \in X$, there is exactly one $y \in Y$ that corresponds to x. 
+\end{definition}
+
+\begin{definition}
+Let $\mathbb{N}$ denote the set of natural numbers. We will assume the natural numbers exist, without constructing a model for the natural numbers.
+\end{definition}
+
+We just created the natural numbers, and gave them a name (the natural numbers or $\mathbb{N}$) without even proving they exist. We just assume they exist. To prove the natural numbers exist, we need to find an example (or model) of the natural numbers. We can also construct an example (or model) of the natural numbers, using set theory, to prove that they exist. \\
+
+It's common to construct the natural numbers from set theory, and to prove that the object we construct obeys all the rules of the natural numbers. In this paper, we will just assume that a number system obeys all of the fundamental rules (axioms) we lay out.
+
+\begin{axiom}
+0 is a natural number.
+\end{axiom}
+
+We just created a natural number axiomatically. It's the first natural number we have created. And we call it zero. \\
+
+Now, let's consider our second axiom. What if we were to say the successor to 0 is a natural number? Let's denote this successor by the notation 0++ or S(0). In fact, the whole idea of a successor is an operation that we must define.
+
+\begin{definition}
+Let $S : \mathbb{N} \to \mathbb{N}$ be the successor function, where $S(n)$ is the successor of n for every $n \in \mathbb{N}$. The notation $\inc{n}$ is a shorthand for $S(n)$. The successor operation can also be called the increment operation.
+\end{definition}
+
+We just defined the successor operation, also called the increment operation. Now we can write an axiom about it. But what axiom should we write? \\
+
+Let's say we state that the successor to 0 is a natural number. We can axiomatize this statement, certainly, but is it the most useful axiom we can make? \\
+
+Consider this. Suppose the successor to 0 is a natural number. Let's call it 1. Then it's entirely possible that $1 = 0$ and that $1 \neq 0$. But what about the successor to 1? Is the successor to 1 a natural number? We can see that if $1 \neq 0$, then we know nothing about the successor to 1, whether it is a natural number or not, because our axioms do not tell us that. \\
+
+So perhaps we want a more useful axiom. Let's use this one. 
+
+\begin{axiom}
+If n is a natural number, then the successor to n is a natural number. That is, $S(n)$ is a natural number. We can also write $\inc{n}$ is a natural number, since these statements are the same.
+\end{axiom}
+
+You might be saying, "Oh my God, these axioms are very powerful! Where did you get them?" \\
+
+Well, that's a good question. I got them from the book Analysis-1 by Terence Tao, and the whole world has gotten them from a 19th-century Italian mathematician named Giuseppe Peano. The formulation of the Peano axioms differ from book to book, and the formulation we give in this paper comes from Analysis-1 by Terence Tao. \\
+
+So you might be saying, we know that the successor of a natural number is always a natural number. Is it the case that every natural number has a successor? \\
+
+We can put it very simply by giving an example. Consider the example where the successor to 0 is 0. Then every natural number has a successor, and there is only one natural number, zero. So it's the case that, with axiom 1 and axiom 2, we can confidently state that every natural number has a successor. \\
+
+But we don't want it to be the case that there is only one natural number. Because intuitively we know there are infinitely many natural numbers. So how can we write a set of fundamental rules that fully describes the natural numbers, from which every known rule concerning the natural numbers can be derived? It's simple: we need more axioms. Let's proceed with writing more axioms.
+
+\begin{axiom}
+0 is not the successor of any natural number.
+\end{axiom}
+
+The natural number 0 is the first natural number we created. It has the unique property of not being the successor of any natural number. It is the first natural number, the minimal natural number. Is there a maximum natural number? No. The natural numbers approach positive infinity. Is there a minimum natural number? Yes. The natural number 0 is the minimum natural number, the first natural number. \\
+
+But now consider an example where there are two and only two natural numbers, 0 and 1. This is possible with our three axioms because what if the successor to 0 is 1, and the successor to 1 is 1? Then we have a case where $0 \neq 1$ but the successor to 1 is 1, meaning, there are only two natural numbers, 0 and 1. \\
+
+So we need another axiom to prevent this from happening. And when we say this, what do we mean? We're really talking about cycles, where the successor of a natural number cycles back to a natural number that precedes it. So if the successor to 1 is 1, then the number system $\{0, 1\}$ cycles back on 1. And if the successor to 3 is 2, then the number system $\{1, 2, 3\}$ cycles back on 2. We want to prevent any cycles in the listing of natural numbers. We don't want, as Terence Tao writes, any cycles or wrap-arounds when we list the natural numbers in order. So we need another axiom to ensure that there are no cycles or wrap-arounds.
+
+\begin{axiom}
+If $n \neq m$, then $S(n) \neq S(m)$, or in other words, $\inc{n} \neq \inc{m}$.
+\end{axiom}
+
+We can use this axiom to prove there are no cycles. We can also use this axiom to prove that the natural numbers have infinite cardinality. In other words, there are infinitely many natural numbers. (The cardinality of a set is the size of the set.) We will give one more axiom which is given in Terence Tao's book, Analysis-1, before proceeding with our theorems and proofs.
+
+\begin{axiom}
+Let $P(n)$ be a property that is true for a natural number n. Suppose that $P(0)$ is true, and suppose that whenever $P(n)$ is true, $P(\inc{n})$ is also true. Then $P(n)$ is true for every natural number n.
+\end{axiom}
+
+There we have it. The last of the Peano axioms. This last axiom describes the principle of mathematical induction. \\
+
+We now have five Peano axioms that describe the natural numbers. These are five fundamental rules that the natural numbers must obey. So what they really do is they describe the behavior of the natural numbers, and help us write theorems and proofs about the behavior of natural numbers. \\
+
+Let's use these five fundamental rules (these five axioms) to write theorems and proofs about the natural numbers.
+\end{document}
