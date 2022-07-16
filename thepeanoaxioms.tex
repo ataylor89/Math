@@ -113,4 +113,20 @@ I'd like to give an informal definition of a set from Terence Tao's book Analysi
 In other words, a set A is any unordered collection of objects. If A is a set, then A is also an object. So it is meaningful to ask whether a set is an element in another set, because a set is an object, and thus a set can be an element of another set.
 \end{remark}
 
+Now that we have made some remarks on the equality relation, set theory, and the definition of sets (to give us a better understanding of how to construct the natural numbers, without doing so formally and rigorously) let's proceed by writing some theorems about the natural numbers, and proving them. \\
+
+In other words, we know the fundamental rules that describe the natural numbers: the Peano axioms, axioms one through five. What properties of the natural numbers can we derive from these fundamental rules? What rules concerning the natural numbers can we derive from these axioms?
+
+\begin{theorem}
+There are infinitely many natural numbers. 
+\end{theorem}
+
+\begin{proof}
+Suppose there were finitely many natural numbers.\\
+
+Let $X = \{S(n) \mid n \in \mathbb{N}\}$. \\
+
+We know the successor of a natural number is a natural number, so X must be a subset of $\mathbb{N}$. We also know that for all $n \neq m$, $S(n) \neq S(m)$, so there has to be a one-to-one correspondence between X and $\mathbb{N}$. Thus there exists a bijection between X and $\mathbb{N}$. Since X is both a subset of $\mathbb{N}$ and isomorphic to $\mathbb{N}$, it must be the case that $X = \mathbb{N}$. But this means that $0 \in X$, which is a contradiction, since 0 is not the successor of any natural number. Thus there are infinitely many natural numbers.
+\end{proof}
+
 \end{document}
