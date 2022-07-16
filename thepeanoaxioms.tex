@@ -129,4 +129,28 @@ Let $X = \{S(n) \mid n \in \mathbb{N}\}$. \\
 We know the successor of a natural number is a natural number, so X must be a subset of $\mathbb{N}$. We also know that for all $n \neq m$, $S(n) \neq S(m)$, so there has to be a one-to-one correspondence between X and $\mathbb{N}$. Thus there exists a bijection between X and $\mathbb{N}$. Since X is both a subset of $\mathbb{N}$ and isomorphic to $\mathbb{N}$, it must be the case that $X = \mathbb{N}$. But this means that $0 \in X$, which is a contradiction, since 0 is not the successor of any natural number. Thus there are infinitely many natural numbers.
 \end{proof}
 
+\begin{theorem}
+There are infinitely many prime numbers.
+\end{theorem}
+
+\begin{remark}
+To prove this we will take for granted the definitions of addition and multiplication, the definition of a prime number, and the rules of algebra, like the distributive property.
+\end{remark}
+
+\begin{proof}
+Suppose there are finitely many prime numbers. Let $P = \{p_{1}, p_{2}, p_{3}, ... ,p_{n}\}$ be the set of prime numbers. Let $x = p_{1}p_{2}p_{3} \dotsm p_{n} + 1$. Let k be a natural number such that $1 \leq k \leq n$. Then 
+
+\begin{align*}
+\dfrac{x}{p_{k}} &= \dfrac{p_{1}p_{2}p_{3} \dotsm p_{n} + 1}{p_{k}} \\
+&= \dfrac{p_{1}p_{2}p_{3} \dotsm p_{n}}{p_{k}} + \dfrac{1}{p_{k}} \\
+&= y + \dfrac{1}{p_{k}}
+\end{align*}
+
+In the resulting expression, $y$ is a natural number and $\dfrac{1}{p_{k}}$ is not a natural number. Thus the sum cannot be a natural number, which means that x is not divisible by any prime. If x is not divisible by any prime, then x must be prime. But this is a contradiction, since x is not an element of P. Thus there are infinitely many primes. 
+\end{proof}
+
+\begin{remark}
+Does the above proof also depend on the rational numbers? Yes, because we used rational numbers in our proof. Thus we see one use of the rational numbers: they help us with an operation called division. They also help us construct the real numbers from Cauchy sequences of rational numbers.
+\end{remark}
+
 \end{document}
