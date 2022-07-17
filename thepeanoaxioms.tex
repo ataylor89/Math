@@ -2,6 +2,7 @@
 \usepackage{amsmath, amssymb, amsthm}
 \newtheorem{axiom}{Axiom}
 \newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
 \newtheorem{remark}{Remark}
 \newcommand{\inc}[1]{\mathrel{{{#1}+}+}}
@@ -46,7 +47,7 @@ We just created a natural number axiomatically. It's the first natural number we
 Now, let's consider our second axiom. What if we were to say the successor to 0 is a natural number? Let's denote this successor by the notation 0++ or S(0). In fact, the whole idea of a successor is an operation that we must define.
 
 \begin{definition}
-Let $S : \mathbb{N} \to \mathbb{N}$ be the successor function, where $S(n)$ is the successor of n for every $n \in \mathbb{N}$. The notation $\inc{n}$ is a shorthand for $S(n)$. The successor operation can also be called the increment operation.
+Let $S : \mathbb{N} \to \mathbb{N}\setminus\{0\}$ be the successor function, where $S(n)$ is the successor of n for every $n \in \mathbb{N}$. The notation $\inc{n}$ is a shorthand for $S(n)$. The successor operation can also be called the increment operation.
 \end{definition}
 
 We just defined the successor operation, also called the increment operation. Now we can write an axiom about it. But what axiom should we write? \\
@@ -61,7 +62,7 @@ So perhaps we want a more useful axiom. Let's use this one.
 If n is a natural number, then the successor to n is a natural number. That is, $S(n)$ is a natural number. We can also write $\inc{n}$ is a natural number, since these statements are the same.
 \end{axiom}
 
-You might be saying, "Oh my God, these axioms are very powerful! Where did you get them?" \\
+You might be saying, ``Oh my God, these axioms are very powerful! Where did you get them?'' \\
 
 Well, that's a good question. I got them from the book Analysis-1 by Terence Tao, and the whole world has gotten them from a 19th-century Italian mathematician named Giuseppe Peano. The formulation of the Peano axioms differ from book to book, and the formulation we give in this paper comes from Analysis-1 by Terence Tao. \\
 
@@ -98,24 +99,12 @@ We now have five Peano axioms that describe the natural numbers. These are five 
 Let's use these five fundamental rules (these five axioms) to write theorems and proofs about the natural numbers. 
 
 \begin{remark}
-One remark before we proceed. You may have noticed that we used the equality relation = and its opposite $\neq$ without defining them. That's because, in order to define them, we have to delve into set theory. When we construct the natural numbers from set theory, we define a natural number as a set. $0 = \emptyset$. $1 = \{\emptyset\}$. $2 = \{\emptyset, \{\emptyset\}\}$. And so on.
-
-The equality relation then has a very simple definition. Two natural numbers are equal when the sets they are based on are equal. Two sets A and B are equal if and only if for all $a \in A$, we have $a \in B$, and for all $b \in B$, we have $b \in A$. Thus the equality relation for natural numbers is based on the equality relation for sets, when we construct the natural numbers using set theory.
-
-We state these ideas in a remark (how to construct the natural numbers from set theory and how to define the equality relation with set theory) because it would take some time to come up with a more formal and rigorous explanation.
+You may have noticed that we have not defined the equality relation. One way of doing this draws on set theory. We can construct the natural numbers from sets, for example, $0 = \emptyset$. $1 = \{\emptyset\}$. $2 = \{\emptyset, \{\emptyset\}\}$. With this construction of the natural numbers, two natural numbers are equal if the sets they are based on are equal. 
 \end{remark}
 
 \begin{remark}
-A second remark. You may be wondering, what is a set? After all, we just gave an informal definition of the equality relation. And we used set theory to make that definition. So what exactly is a set?
-
-I'd like to give an informal definition of a set from Terence Tao's book Analysis-1. A set is an unordered collection of objects. He gives this informal definition, and then goes on to say, a set is itself an object. 
-
-In other words, a set A is any unordered collection of objects. If A is a set, then A is also an object. So it is meaningful to ask whether a set is an element in another set, because a set is an object, and thus a set can be an element of another set.
+You may be wondering, what is a set? To use a definition from Terence Tao's book Analysis-1, a set is any unordered collection of objects. He goes on to say that a set is also an object. So a set can be an element of another set. In the preceding remark, we use sets of sets to construct the natural numbers.
 \end{remark}
-
-Now that we have made some remarks on the equality relation, set theory, and the definition of sets (to give us a better understanding of how to construct the natural numbers, without doing so formally and rigorously) let's proceed by writing some theorems about the natural numbers, and proving them. \\
-
-In other words, we know the fundamental rules that describe the natural numbers: the Peano axioms, axioms one through five. What properties of the natural numbers can we derive from these fundamental rules? What rules concerning the natural numbers can we derive from these axioms?
 
 \begin{theorem}
 Every natural number is either zero or the successor of a natural number.
@@ -126,24 +115,28 @@ We will use the principle of induction stated in the fifth Peano axiom. Let $P(n
 \end{proof}
 
 \begin{theorem}
+The successor function $S : \mathbb{N} \to \mathbb{N}\setminus\{0\}$ is a bijection.
+\end{theorem}
+
+\begin{proof}
+We know that $S(n)$ is a surjection because the range is a subset of the domain. By the fourth Peano axiom, we know that $S(n)$ is also an injection (one-to-one). Thus $S(n)$ is a bijection.
+\end{proof}
+
+\begin{theorem}
 There are infinitely many natural numbers. 
 \end{theorem}
 
 \begin{proof}
-Suppose there are finitely many natural numbers.\\
-
-Let $X = \{S(n) \mid n \in \mathbb{N}\}$. In other words, let X be the image of S. \\
-
-We know the successor of a natural number is a natural number, so X must be a subset of $\mathbb{N}$. We also know that for all $n \neq m$, $S(n) \neq S(m)$, so S is one-to-one. Thus S is a bijection. This means that X and $\mathbb{N}$ have the same cardinality. Since X is both a subset of $\mathbb{N}$ and has the same finite cardinality as $\mathbb{N}$, it must be the case that $X = \mathbb{N}$. But this means that $0 \in X$, which is a contradiction, since 0 is not the successor of any natural number. Thus there are infinitely many natural numbers.
+Suppose there are finitely many natural numbers.We know that $S : \mathbb{N} \to \mathbb{N}\setminus\{0\}$ is a bijection. Since the range is a subset of the domain, and the domain is a finite set, it must be the case that the domain and range are equal sets. In other words, $\mathbb{N} = \mathbb{N}\setminus\{0\}$. But this is a contradiction, since 0 is in the domain but not in the range. Thus there are infinitely many natural numbers. 
 \end{proof}
+
+\begin{remark}
+To prove the next theorem we will take for granted the rules of algebra, which we have not yet derived.
+\end{remark}
 
 \begin{theorem}
 There are infinitely many prime numbers.
 \end{theorem}
-
-\begin{remark}
-To prove this we will take for granted the definitions of addition and multiplication, the definition of a prime number, and the rules of algebra, like the distributive property.
-\end{remark}
 
 \begin{proof}
 Suppose there are finitely many prime numbers. Let $P = \{p_{1}, p_{2}, p_{3}, ... ,p_{n}\}$ be the set of prime numbers. Let $x = p_{1}p_{2}p_{3} \dotsm p_{n} + 1$. Let k be a natural number such that $1 \leq k \leq n$. Then 
@@ -156,9 +149,5 @@ Suppose there are finitely many prime numbers. Let $P = \{p_{1}, p_{2}, p_{3}, .
 
 In the resulting expression, $y$ is a natural number and $\dfrac{1}{p_{k}}$ is not a natural number. Thus the sum cannot be a natural number, which means that x is not divisible by any prime. If x is not divisible by any prime, then x must be prime. But this is a contradiction, since x is not an element of P. Thus there are infinitely many primes. 
 \end{proof}
-
-\begin{remark}
-Does the above proof also depend on the rational numbers? Yes, because we used rational numbers in our proof. Thus we see one use of the rational numbers: they help us with an operation called division. They also help us construct the real numbers from Cauchy sequences of rational numbers.
-\end{remark}
 
 \end{document}
