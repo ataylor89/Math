@@ -118,11 +118,19 @@ Now that we have made some remarks on the equality relation, set theory, and the
 In other words, we know the fundamental rules that describe the natural numbers: the Peano axioms, axioms one through five. What properties of the natural numbers can we derive from these fundamental rules? What rules concerning the natural numbers can we derive from these axioms?
 
 \begin{theorem}
+Every natural number is either zero or the successor of a natural number.
+\end{theorem}
+
+\begin{proof}
+We will use the principle of induction stated in the fifth Peano axiom. Let $P(n)$ signify that n is either zero or a natural number. This property is clearly true for $n = 0$. Suppose inductively that it is true for n. Then it is also true for $\inc{n}$, because $\inc{n}$ is the successor of n. This closes our induction. Thus $P(n)$ is true for every natural number n. Therefore a natural number is either zero or the successor of a natural number.
+\end{proof}
+
+\begin{theorem}
 There are infinitely many natural numbers. 
 \end{theorem}
 
 \begin{proof}
-Suppose there were finitely many natural numbers.\\
+Suppose there are finitely many natural numbers.\\
 
 Let $X = \{S(n) \mid n \in \mathbb{N}\}$. In other words, let X be the image of S. \\
 
