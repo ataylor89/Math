@@ -160,4 +160,12 @@ Let's review. S is the successor function. The second Peano axiom makes it neces
 Let m be a natural number. We define $0 + m = m$. Now suppose inductively that we have defined $n + m$ for a natural number n. Then we define $(\inc{n}) + m = \ \inc{(n+m)}$. 
 \end{definition}
 
+\begin{lemma}
+For any natural number n, $n + 0 = n$.
+\end{lemma}
+
+\begin{proof}
+We will induct on n. In the base case where $n = 0$, we see that $0 + 0 = 0$, which follows from the definition of addition. Suppose inductively that $n + 0 = n$. Then $\inc{(n)} + \ 0 \ = \ \inc{(n+0)}$, which also follows from the definition of addition. We can substitute n for $n + 0$ and we get $\inc{(n)} + \ 0 \ = \ \inc{n}$, which is what we wanted. This closes our induction. Thus $n + 0 = n$ for any natural number n.
+\end{proof}
+
 \end{document}
