@@ -3,7 +3,8 @@ import re
 
 regexA = re.compile(r'([+-])?\s*(\d+)?x\^2')
 regexB = re.compile(r'([+-])?\s*(\d+)?x[^^]')
-regexC = re.compile(r'([+-])?\s*[^^](\d+)[\s+-=]')
+regexC = re.compile(r'^([+-])?\s*(\d+)[\s+-=]')
+regexD = re.compile(r'([+-])?\s*[^^](\d+)[\s+-=]')
 
 equation = input('Enter a quadratic equation: ')
 a = 0
@@ -24,6 +25,11 @@ if m:
 
 m = regexC.search(equation)
 if m:
+    c = m.group(1) if m.group(1) else ''
+    c += m.group(2) 
+    c = int(c)
+else:  
+    m = regexD.search(equation)
     c = m.group(1) if m.group(1) else ''
     c += m.group(2) 
     c = int(c)
