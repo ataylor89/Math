@@ -5,6 +5,8 @@ import math
 
 def approximate_pi(n):
     A = n * math.sin(math.pi/n) * math.cos(math.pi/n)
+    # The expression %-10d tells the print function to left-justify the integer by ten spaces
+    # The expression %.20f tells the print function to display 20 decimal places of the float
     print("n: %-10d A: %.20f" %(n, A))
     return A
 
