@@ -1,5 +1,5 @@
-# In this program we will approximate pi by calculating the area of an n-sided polygon inscribed in a circle of radius 1
-# The larger our value of n, the better the approximation
+# This program approximates pi by calculating the area of an n-sided polygon inscribed in a unit circle
+# The larger the value of n, the better the approximation
 
 import math
 
@@ -12,6 +12,7 @@ def main():
     print("=======================================================================================")
     print("Approximating the area of an n-sided regular polygon inscribed in a unit circle.")
     print("The limit of this area as n goes to infinity approaches pi.")
+    print("In limit notation, lim n->inf n*sin(pi/n)*cos(pi/n) = pi")
     print("=======================================================================================")
     for n in range(3, 20, 1):
         approximate_pi(n)
