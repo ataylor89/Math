@@ -10,7 +10,7 @@ def approximate_pi(n):
 
 def main():
     print("===========================================================")
-    print("Approximating the area of an n-sided polygon with radius 1.")
+    print("Approximating the area of an n-sided regular polygon with radius 1.")
     print("The limit of this area as n goes to infinity approaches pi.")
     print("===========================================================")
     for n in range(3, 20, 1):
