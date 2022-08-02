@@ -15,13 +15,10 @@ def main():
     print("===========================================================")
     for n in range(3, 20, 1):
         approximate_pi(n)
-
     for n in range(20, 100, 10):
         approximate_pi(n)
-
     for n in range(1000, 10000, 1000):
         approximate_pi(n)
-
     for n in range(100000, 1000000, 100000):
         approximate_pi(n)
 
