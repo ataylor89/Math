@@ -23,6 +23,8 @@ def main():
         approximate_pi(n)
     for n in range(1000, 10000, 1000):
         approximate_pi(n)
+    for n in range(10000, 100000, 10000):
+        approximate_pi(n)
     for n in range(100000, 1000000, 100000):
         approximate_pi(n)
 
