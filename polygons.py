@@ -9,10 +9,10 @@ def approximate_pi(n):
     return A
 
 def main():
-    print("===========================================================")
-    print("Approximating the area of an n-sided regular polygon with radius 1.")
+    print("=======================================================================================")
+    print("Approximating the area of an n-sided regular polygon inscribed in a unit circle.")
     print("The limit of this area as n goes to infinity approaches pi.")
-    print("===========================================================")
+    print("=======================================================================================")
     for n in range(3, 20, 1):
         approximate_pi(n)
     for n in range(20, 100, 10):
