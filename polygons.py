@@ -16,7 +16,7 @@ def table(begin, end, step):
         print("%-10d %.20f" %(n, approximate_pi(n)))
 
 # Prints a table of areas for n-sided regular polygons inscribed in a unit circle
-# The limit of the area of an n-sided regular polygon as n approaches infinity is pi.
+# The limit of the area of an n-sided regular polygon as n approaches infinity is pi
 # In limit notation, lim n->inf n*sin(pi/n)*cos(pi/n) = pi 
 def main():
     print("Area of a regular n-sided polygon inscribed in a unit circle (approximation of pi)")
@@ -31,7 +31,7 @@ def main():
 
 # This code will only run if it's the top-level environment.
 # https://docs.python.org/3/library/__main__.html
-# In other words, if the file is imported, this code will not be run.
+# If the file is imported, this code will not be run.
 # The special variable __name__ is set to "__main__" when the file is the top-level environment (the main entry point to the application).
 # Otherwise, the special variable __name__ is set to the module name.
 if __name__ == "__main__":
