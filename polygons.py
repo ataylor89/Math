@@ -5,9 +5,6 @@ import math
 # Returns the area of an n-sided regular polygon inscribed in a unit circle as an approximation of pi
 def approximate_pi(n):
     A = n * math.sin(math.pi/n) * math.cos(math.pi/n)
-    # The expression %-10d tells the print function to left-justify the integer by ten spaces
-    # The expression %.20f tells the print function to display 20 decimal places of the float
-    # This formatting syntax was adopted by Python from the C programming language
     return A
 
 # Prints a table of areas for n-sided regular polygons inscribed in a unit circle.
@@ -15,6 +12,9 @@ def approximate_pi(n):
 # In limit notation, lim n->inf n*sin(pi/n)*cos(pi/n) = pi 
 def table(begin, end, step):
     for n in range(begin, end, step):
+        # The expression %-10d tells the print function to left-justify the integer by ten spaces
+        # The expression %.20f tells the print function to display 20 decimal places of the float
+        # This formatting syntax was adopted by Python from the C programming language
         print("%-10d %.20f" %(n, approximate_pi(n)))
 
 # Prints a table of areas for n-sided regular polygons inscribed in a unit circle
