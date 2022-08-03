@@ -1,4 +1,4 @@
-# This program approximates pi by calculating the area of an n-sided polygon inscribed in a unit circle
+# This program approximates pi by calculating the area of an n-sided regular polygon inscribed in a unit circle
 # The larger the value of n, the better the approximation
 import math
 
