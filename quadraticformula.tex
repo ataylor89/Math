@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\title{The quadratic formula}
+\author{Andrew Taylor}
+\date{August 3 2022}
+\begin{document}
+\maketitle
+
+We can derive the quadratic formula by solving the quadratic equation $ax^2 + bx + c = 0$ for x. \\
+
+We solve this equation by completing the square.
+
+\begin{align*}
+ax^2 + bx + c &= 0 \\
+x^2 + \dfrac{b}{a}x + \dfrac{c}{a} &= 0 \\
+x^2 + \dfrac{b}{a}x + \left(\dfrac{b}{2a}\right)^2 + \dfrac{c}{a} &= \left(\dfrac{b}{2a}\right)^2 \\
+\left(x + \dfrac{b}{2a}\right)^2 + \dfrac{c}{a} &= \left(\dfrac{b}{2a}\right)^2 \\
+\left(x + \dfrac{b}{2a}\right)^2 &= \dfrac{b^2 - 4ac}{4a^2} \\
+x + \dfrac{b}{2a} &= \dfrac{\pm \sqrt{b^2 - 4ac}}{2a} \\
+x &= \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\
+\end{align*}
+
+This technique (completing the square) was discovered by the Arabic mathematician al-Khwarizmi in the early 9th century CE. \\
+
+You can see how we use the rules of algebra to get a square on the lefthand side of the equation. When we take the square root of both sides, we are left with only one term that has the variable x. \\
+
+Our equations reveal the journey of isolating the variable x, so that only one term contains the variable x. \\
+
+The expression $b^2 - 4ac$ is called the discriminant. When $b^2 - 4ac$ is negative, the solutions are imaginary numbers. When $b^2 - 4ac$ is nonnegative, the solutions are real numbers. \\
+
+The only constraint on this formula is that $a \neq 0$. When $a = 0$ the equation is linear, not quadratic. \\
+
+We have discovered the quadratic formula by using algebraic operations on the quadratic equation $ax^2 + bx + c = 0$ to isolate the variable x. In other words, we have discovered the quadratic formula by completing the square. \\
+
+The quadratic formula is $x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+\end{document}
