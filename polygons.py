@@ -7,9 +7,7 @@ def approximate_pi(n):
     A = n * math.sin(math.pi/n) * math.cos(math.pi/n)
     return A
 
-# Prints a table of areas for n-sided regular polygons inscribed in a unit circle.
-# The limit of the area of an n-sided regular polygon as n approaches infinity is pi.
-# In limit notation, lim n->inf n*sin(pi/n)*cos(pi/n) = pi 
+# Prints a table of areas for n-sided regular polygons inscribed in a unit circle
 def table(begin, end, step):
     for n in range(begin, end, step):
         # The expression %-10d tells the print function to left-justify the integer by ten spaces
@@ -18,6 +16,8 @@ def table(begin, end, step):
         print("%-10d %.20f" %(n, approximate_pi(n)))
 
 # Prints a table of areas for n-sided regular polygons inscribed in a unit circle
+# The limit of the area of an n-sided regular polygon as n approaches infinity is pi.
+# In limit notation, lim n->inf n*sin(pi/n)*cos(pi/n) = pi 
 def main():
     print("Area of a regular n-sided polygon inscribed in a unit circle (approximation of pi)")
     print("==================================================================================")
