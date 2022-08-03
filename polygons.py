@@ -29,8 +29,10 @@ def main():
     table(1000, 10000, 1000)
     table(10000, 100000, 10000)
 
-# This code will only run if it's the top-level environment (the entry point to the application)
+# This code will only run if it's the top-level environment (the entry point to the application).
 # https://docs.python.org/3/library/__main__.html
-# In other words, if the file is imported, this code will not be run
+# In other words, if the file is imported, this code will not be run.
+# The special variable __name__ is set to "__main__" when the file is the top-level environment.
+# Otherwise, the special variable __name__ is set to the module name.
 if __name__ == "__main__":
     main()
