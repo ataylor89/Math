@@ -31,7 +31,7 @@ def main():
 
 # This code will only run if it's the top-level environment.
 # https://docs.python.org/3/library/__main__.html
-# If the file is imported, this code will not be run.
+# If the file is imported, the code will not be run.
 # The special variable __name__ is set to "__main__" when the file is the top-level environment (the main entry point to the application).
 # Otherwise, the special variable __name__ is set to the module name.
 if __name__ == "__main__":
