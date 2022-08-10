@@ -53,7 +53,7 @@ def main():
 # https://docs.python.org/3/library/__main__.html
 #
 # The special variable __name__ is set to "__main__" when the file is the top-level environment (the main entry point of the application).
-# Otherwise, the special variable __name__ is set to the module name.
+# Otherwise, the special variable __name__ is set to the name of the module.
 
 if __name__ == "__main__":
     main()
