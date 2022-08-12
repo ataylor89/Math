@@ -25,9 +25,9 @@ table = {
     }
 }
 
-def generate(start, iterations):
+def generate(start, depth):
     theta = start
-    for i in range(0, iterations):
+    for i in range(0, depth):
         angle = theta/2
         table[angle] = {}
         table[angle]['sine'] = math.sqrt((1-cosine(theta))/2)
