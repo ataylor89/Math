@@ -1,3 +1,5 @@
+# This module generates a trigonometric table using the half-angle identities for sine and cosine
+
 import math
 
 table = {
