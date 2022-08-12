@@ -31,7 +31,7 @@ def generate(theta, depth):
         table[angle] = {}
         table[angle]['sine'] = math.sqrt((1-cosine(theta))/2)
         table[angle]['cosine'] = math.sqrt((1+cosine(theta))/2)
-        theta /= 2
+        theta = angle
     
 def sine(theta):
     if theta in table:
