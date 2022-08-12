@@ -25,7 +25,8 @@ table = {
     }
 }
 
-def generate(theta, depth):
+def generate(start, depth):
+    theta = start
     for i in range(0, depth):
         angle = theta/2
         table[angle] = {}
